@@ -106,13 +106,17 @@ export default {
     },
     // todo 박스를 클릭 시 선택 영역
     handleClickSejunBox() {
+      // if (this.isSbClicked && this.isEcClicked) {
+      //   this.isEcClicked = !this.isEcClicked;
+      // }
       this.isSbClicked = !this.isSbClicked;
-      this.isEcClicked = !this.isSbClicked;
       this.errorMessage = '';
     },
      handleClickEunchaeBox() {
+      // if (this.isSbClicked && this.isEcClicked) {
+      // this.isSbClicked = !this.isSbClicked;
+      // }
       this.isEcClicked = !this.isEcClicked;
-      this.isSbClicked = !this.isEcClicked;
       this.errorMessage = '';
     },
   }
