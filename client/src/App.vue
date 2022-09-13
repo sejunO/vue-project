@@ -4,7 +4,7 @@
 
         <div class="p-5 mb-4 rounded-3">
           <div class="col-md-6 offset-md-3">
-            <h1 class="text-center mb-4">To-Do-List</h1>
+            <title-component></title-component>
               <div class="input-group w-100">
               <span class="input-group-text" id="basic-addon1" @click="addNewTodo">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -44,14 +44,16 @@
             </div>
           </div>
         </div>
-        
+
       </div>
   </div>
 </template>
 
 <script>
+import TitleComponent from "@/components/TitleComponent";
 export default {
   name: 'App',
+  components: {TitleComponent},
   data() {
     return {
       userInput: '',
