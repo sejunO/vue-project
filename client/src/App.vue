@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <title-component></title-component>
+    <title-component :menu="menu"></title-component>
     <div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
       <sidebar-component></sidebar-component>
       <main>
@@ -67,7 +67,12 @@ export default {
       ecTodoList: [],
       isSbClicked: false,
       isEcClicked: false,
-      errorMessage: ''
+      errorMessage: '',
+      menu: {
+        first: 'home',
+        second: 'sejun',
+        third: 'babo'
+      }
     };
   },
   // class의 getter함수처럼 동작
