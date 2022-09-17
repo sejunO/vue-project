@@ -1,59 +1,65 @@
 <template>
   <div id="app">
-      <div class="container py-4">
 
-        <div class="p-5 mb-4 rounded-3">
-          <div class="col-md-6 offset-md-3">
-            <title-component></title-component>
+    <title-component></title-component>
+    <div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+      <sidebar-component></sidebar-component>
+      <main>
+        <div class="container py-4">
+          <div class="p-5 mb-4 rounded-3">
+            <div class="col-md-6 offset-md-3">
               <div class="input-group w-100">
-              <span class="input-group-text" id="basic-addon1" @click="addNewTodo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
-              </span>
-              <input type="text" class="form-control" placeholder="할 일을 입력해주세요 :-)" v-model="userInput" @keyup.enter="addNewTodo">
+                <span class="input-group-text" id="basic-addon1" @click="addNewTodo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+                </span>
+                <input type="text" class="form-control" placeholder="할 일을 입력해주세요 :-)" v-model="userInput" @keyup.enter="addNewTodo">
               </div>
               <div class="list-group list">
-              {{ errorMessage }}
+                {{ errorMessage }}
+              </div>
+            </div>
+          </div>
+
+          <!-- 메롱 -->
+
+          <div class="row align-items-md-stretch eachTodo">
+            <div class="col-md-6">
+              <div class="h-100 p-5 text-bg-dark rounded-3 todoBox" :class="{ boxBorder: isSbClicked }" @click="handleClickSejunBox">
+                <h4>세준 TODO</h4>
+                  <div class="list-group list">
+                    <button class="list-group-item text-left mb-2" v-for="todo in sjTodoList" :key="todo" @click="toggleTodoState(todo)">
+                    {{ todo.label }}
+                    </button>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="h-100 p-5 text-bg-dark rounded-3 todoBox" :class="{ boxBorder: isEcClicked }" @click="handleClickEunchaeBox">
+                <h4>은채 TODO</h4>
+                  <div class="list-group list">
+                    <button class="list-group-item text-left mb-4" v-for="todo in ecTodoList" :key="todo" @click="toggleTodoState(todo)">
+                    {{ todo.label }}
+                    </button>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- 메롱 -->
-
-        <div class="row align-items-md-stretch eachTodo">
-          <div class="col-md-6">
-            <div class="h-100 p-5 text-bg-dark rounded-3 todoBox" :class="{ boxBorder: isSbClicked }" @click="handleClickSejunBox">
-              <h4>세준 TODO</h4>
-                <div class="list-group list">
-                  <button class="list-group-item text-left mb-2" v-for="todo in sjTodoList" :key="todo" @click="toggleTodoState(todo)">
-                  {{ todo.label }}
-                  </button>
-                </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="h-100 p-5 text-bg-dark rounded-3 todoBox" :class="{ boxBorder: isEcClicked }" @click="handleClickEunchaeBox">
-              <h4>은채 TODO</h4>
-                <div class="list-group list">
-                  <button class="list-group-item text-left mb-4" v-for="todo in ecTodoList" :key="todo" @click="toggleTodoState(todo)">
-                  {{ todo.label }}
-                  </button>
-                </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      </main>
+    </div>
   </div>
 </template>
 
 <script>
 import TitleComponent from "@/components/TitleComponent";
+import SidebarComponent from "@/components/SidebarComponent";
 export default {
   name: 'App',
-  components: {TitleComponent},
+  // eslint-disable-next-line vue/no-unused-components
+  components: {TitleComponent, SidebarComponent},
   data() {
     return {
       userInput: '',
@@ -126,7 +132,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
+  /*color: white;*/
   margin-top: 60px;
 }
 
@@ -159,7 +165,7 @@ export default {
   border: 5px solid;
 }
 
-body {
-  background: black;
-}
+/*body {*/
+/*  background: black;*/
+/*}*/
 </style>
