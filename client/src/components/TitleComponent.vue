@@ -2,6 +2,7 @@
 <!--  <h1 class="text-center mb-4">To-Do-List</h1>-->
 
   <header class="navbar navbar-expand-lg navbar-dark bd-navbar sticky-top">
+
     <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
       <div class="bd-navbar-toggle">
         <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar" aria-controls="bdSidebar" aria-label="Toggle docs navigation">
@@ -40,7 +41,7 @@
               <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="/docs/5.2/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
             </li>
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">{{test}}test</a>
             </li>
             <li class="nav-item col-6 col-lg-auto">
               <a class="nav-link py-2 px-0 px-lg-2" href="https://icons.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Icons');" target="_blank" rel="noopener">Icons</a>
@@ -117,9 +118,12 @@
 <script>
 export default {
   name: 'HeaderComponent',
-  props: {
-
-  }
+  data() {
+    return {
+      test : ''
+    }
+  },
+  props: ['test2']
 }
 </script>
 

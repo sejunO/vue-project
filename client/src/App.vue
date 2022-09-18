@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <title-component></title-component>
+    <title-component :test='test2'></title-component>
     <div class="container-xxl bd-gutter mt-3 my-md-4 bd-layout">
       <sidebar-component></sidebar-component>
       <main>
