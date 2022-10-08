@@ -38,19 +38,13 @@
           <hr class="d-lg-none text-white-50">
           <ul class="navbar-nav flex-row flex-wrap bd-navbar-nav">
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2 active" aria-current="true" href="/docs/5.2/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">{{ menu.first }}</a>
             </li>
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">{{test}}test</a>
+              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">{{ menu.second }}</a>
             </li>
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://icons.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Icons');" target="_blank" rel="noopener">Icons</a>
-            </li>
-            <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://themes.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Themes');" target="_blank" rel="noopener">Themes</a>
-            </li>
-            <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://blog.getbootstrap.com/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');" target="_blank" rel="noopener">Blog</a>
+              <a class="nav-link py-2 px-0 px-lg-2" href="/docs/5.2/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">{{ menu.third }}</a>
             </li>
           </ul>
 
@@ -118,12 +112,9 @@
 <script>
 export default {
   name: 'HeaderComponent',
-  data() {
-    return {
-      test : ''
-    }
-  },
-  props: ['test2']
+  props: {
+    menu: Object
+  }
 }
 </script>
 
